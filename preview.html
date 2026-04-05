@@ -48,15 +48,15 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   tileSize: 512,
   zoomOffset: -1,
   id: 'mapbox/dark-v10',
-  accessToken: 'sk.eyJ1IjoibGliZXJlY2FrayIsImEiOiJjbW5sbDllNHcxZDR0MnJxczlzYXp6bGgyIn0.yB3F09xS88VpXnk5z0K-6g'
+  accessToken: 'pk.eyJ1IjoibGliZXJlY2FrayIsImEiOiJjbThvcGIwZHQwMm40MmxxdXM3ejdsd3M5In0.ihj0xMKte7vLYyw1_zaxNg'
 }).addTo(map);
 
   // ===== ZASTÁVKY =====
   var stops = [
     {name: "Ostašov", coords: [50.7682381, 15.0121967]},
     {name: "Karlovská", coords: [50.7716103, 14.9983750]},
-    {name: "Českolipská", coords: [50.7747003, 14.9928464E]},
-    {name: "Karlov", coords: [50.7768592, 14.9879989E]}, 
+    {name: "Českolipská", coords: [50.7747003, 14.9928464]},
+    {name: "Karlov", coords: [50.7768592, 14.9879989]}, 
   ];
 
   stops.forEach(function(stop) {
@@ -134,7 +134,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 ];
 
   L.polyline(route, {
-    color: 'red',
+    color: 'white',
     weight: 5
   }).addTo(map);
 
