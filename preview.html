@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>OMSI Mapa – Linka 46</title>
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    #map {
+      height: 100vh;
+      width: 100%;
+    }
+
+    .title {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      padding: 8px 15px;
+      border-radius: 10px;
+      font-weight: bold;
+      z-index: 1000;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+<div class="title">Linka 46 – Liberec (OMSI)</div>
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  // vytvoření mapy (Liberec)
+  var map = L.map('map').setView([50.7682381, 15.0121967], 13);
+
+  // podkladová mapa
+L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+  attribution: '© Mapbox',
+  tileSize: 512,
+  zoomOffset: -1,
+  id: 'mapbox/dark-v10',
+  accessToken: 'sk.eyJ1IjoibGliZXJlY2FrayIsImEiOiJjbW5sbDllNHcxZDR0MnJxczlzYXp6bGgyIn0.yB3F09xS88VpXnk5z0K-6g'
+}).addTo(map);
+
+  // ===== ZASTÁVKY =====
+  var stops = [
+    {name: "Ostašov", coords: [50.7682381, 15.0121967]},
+    {name: "Karlovská", coords: [50.7716103, 14.9983750]},
+    {name: "Českolipská", coords: [50.7747003, 14.9928464E]},
+    {name: "Karlov", coords: [50.7768592, 14.9879989E]}, 
+  ];
+
+  stops.forEach(function(stop) {
+    L.marker(stop.coords)
+      .addTo(map)
+      .bindPopup("<b>" + stop.name + "</b><br>Linka 46");
+  });
+
+  // ===== TRASA LINKY =====
+  var route = [
+  [50.768132, 15.012124],
+  [50.768143, 15.012078],
+  [50.768342, 15.011541],
+  [50.768808, 15.010363],
+  [50.769035, 15.009753],
+  [50.769132, 15.009447],
+  [50.769212, 15.009132],
+  [50.769473, 15.008036],
+  [50.769581, 15.007633],
+  [50.769683, 15.007291],
+  [50.769796, 15.006977],
+  [50.769922, 15.006654],
+  [50.770586, 15.005162],
+  [50.770694, 15.004910],
+  [50.770785, 15.004650],
+  [50.770865, 15.004380],
+  [50.770938, 15.004084],
+  [50.771080, 15.003446],
+  [50.771200, 15.002862],
+  [50.771257, 15.002566],
+  [50.771291, 15.002314],
+  [50.771319, 15.002081],
+  [50.771337, 15.001803],
+  [50.771382, 15.000851],
+  [50.771388, 15.000635],
+  [50.771427, 15.000140],
+  [50.771507, 14.999117],
+  [50.771615, 14.997562],
+  [50.771643, 14.997293],
+  [50.771689, 14.996933],
+  [50.771859, 14.995828],
+  [50.771876, 14.995702],
+  [50.771905, 14.995586],
+  [50.771927, 14.995478],
+  [50.771972, 14.995379],
+  [50.772047, 14.995236],
+  [50.772109, 14.995119],
+  [50.772171, 14.995046],
+  [50.772251, 14.994993],
+  [50.772620, 14.994796],
+  [50.772802, 14.994723],
+  [50.772944, 14.994696],
+  [50.773450, 14.994696],
+  [50.773541, 14.994679],
+  [50.773608, 14.994670],
+  [50.773682, 14.994643],
+  [50.773757, 14.994580],
+  [50.773819, 14.994526],
+  [50.773887, 14.994427],
+  [50.774024, 14.994203],
+  [50.774194, 14.993888],
+  [50.774381, 14.993501],
+  [50.774688, 14.992909],
+  [50.774876, 14.992496],
+  [50.775074, 14.992119],
+  [50.775177, 14.991885],
+  [50.775461, 14.991238],
+  [50.775591, 14.990924],
+  [50.775768, 14.990457],
+  [50.776256, 14.989253],
+  [50.776409, 14.988867],
+  [50.776557, 14.988553],
+  [50.776704, 14.988256],
+  [50.776853, 14.987987]
+];
+
+  L.polyline(route, {
+    color: 'red',
+    weight: 5
+  }).addTo(map);
+
+</script>
+
+</body>
+</html>
